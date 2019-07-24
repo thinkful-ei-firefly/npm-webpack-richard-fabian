@@ -1,10 +1,16 @@
 import $ from 'jquery';
 
+import {store, items, hideCheckedItems, searchTerm} from './index'
+
+// export default {
+//   bindEventListeners: bindEventListeners,
+//   render: render}
+
 //'use strict';
 /* global store, cuid */
 
 // eslint-disable-next-line no-unused-vars
-const shoppingList = (function(){
+//const shoppingList = (function(){
 
   function generateItemElement(item) {
     let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
@@ -37,7 +43,7 @@ const shoppingList = (function(){
   }
   
   
-  function render() {
+export const render = function() {
     // Filter item list if store prop is true by item.checked === false
     let items = [ ...store.items ];
     if (store.hideCheckedItems) {
@@ -114,7 +120,7 @@ const shoppingList = (function(){
   function handleDeleteItemClicked() {
     // like in `handleItemCheckClicked`, we use event delegation
     $('.js-shopping-list').on('click', '.js-item-delete', event => {
-      // get the index of the item in store.items
+      // get the index of the item in items
       const id = getItemIdFromElement(event.currentTarget);
       // delete the item
       deleteListItem(id);
@@ -148,7 +154,7 @@ const shoppingList = (function(){
     });
   }
   
-  function bindEventListeners() {
+export const bindEventListeners = function() {
     handleNewItemSubmit();
     handleItemCheckClicked();
     handleDeleteItemClicked();
@@ -158,8 +164,8 @@ const shoppingList = (function(){
   }
 
   // This object contains the only exposed methods from this module:
-  return {
+  /*return {
     render,
     bindEventListeners
   };
-}());
+}());*/

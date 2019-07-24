@@ -1,10 +1,14 @@
 import $ from 'jquery';
 
+// export default {store, items, hideCheckedItems, searchTerm}
+
+import {bindEventListeners, render} from './shopping-list'
+
 //'use strict';
 /* global shoppingList, cuid */
 
 // eslint-disable-next-line no-unused-vars
-const store = {
+export const store = {
   items: [
     { id: cuid(), name: 'apples', checked: false },
     { id: cuid(), name: 'oranges', checked: false },
@@ -16,8 +20,10 @@ const store = {
 };
 
 function main() {
-  shoppingList.bindEventListeners();
-  shoppingList.render();
+  bindEventListeners();
+  render();
 }
+
+
 
 $(main);
