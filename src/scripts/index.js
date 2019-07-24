@@ -1,5 +1,5 @@
 import $ from 'jquery';
-
+import '../styles/index.css';
 // export default {store, items, hideCheckedItems, searchTerm}
 
 import {bindEventListeners, render} from './shopping-list'
